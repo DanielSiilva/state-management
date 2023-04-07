@@ -2,6 +2,7 @@
 
 import { createStore } from "redux";
 import rootReducer from "./modules/rootReducer";
+import { composeWithDevTools } from "@reduxjs/toolkit/dist/devtoolsExtension";
 
 import { ICartState } from "./modules/cart/types";
 
@@ -10,6 +11,9 @@ export interface IState {
 }
 
 
-const store = createStore(rootReducer);
+const store = createStore(
+    rootReducer,
+    composeWithDevTools()
+);
 
 export default store;
