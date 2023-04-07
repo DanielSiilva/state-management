@@ -2,6 +2,7 @@ import { Catalog } from "./components/Catalog";
 
 import {Provider} from 'react-redux'
 import store from "./store";
+import { Cart } from "./components/Cart";
 
 
 export function App() {
@@ -9,6 +10,7 @@ export function App() {
     <>
       <Provider store={store}>
         <Catalog/>
+        <Cart/>
       </Provider>
     </>
   )
