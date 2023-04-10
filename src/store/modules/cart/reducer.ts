@@ -4,7 +4,8 @@ import {ICartState } from "./types";
 import produce from "immer";
 
 const INITIAL_STATE:ICartState ={
-    items: []
+    items: [],
+    failedStockCheck: [],
 }
 
 //Todas as regras de negocio devem ficar no reducer, jamais nas actions
@@ -38,11 +39,11 @@ const cart: Reducer<ICartState> = ( state = INITIAL_STATE, action) => {
                 //         }
                 //     ]
                 // };
-                break
+                break;
             }
             case 'ADD_PRODUCT_TO_CART_FAILURE':{
-                console.log('failure', action.payload)
-                break
+                draft.failedStockCheck.push(action.payload.productId)
+                break;
             }
             default:{
                 return state
